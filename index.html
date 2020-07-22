@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <!-- Евгений Алексеевич, спасибо, что дали возможность запихнуть css в html! -->
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Lato:100";
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 10px;
+            font-family: "Lato", Arial, sans-serif;
+        }
+
+        section {
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            color: #fff;
+            background: linear-gradient(-45deg, #EE7752, #E73C73, #23A6D5, #23D5AB);
+            background-size: 400% 400%;
+            position: relative;
+            animation: changeBack 10s ease-in-out infinite;
+        }
+
+        @keyframes changeBack {
+            0% {
+                background-position: 0 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        /* Rectangles */
+        .contentRect {
+            position: fixed;
+            text-align: left;
+            top: 50%;
+            left: 50%;
+            margin-left: -462.5px;
+            margin-top: -208.5px;
+            width: 925px;
+            height: 417px;
+            mix-blend-mode: hard-light;
+            border-radius: 20px;
+            background-color: rgba(205, 205, 205, 0.85);
+
+        }
+
+        .headerRect {
+            position: fixed;
+            text-align: left;
+            top: 30%;
+            left: 50%;
+            margin-left: -230px;
+            margin-top: -203px;
+            width: 510px;
+            height: 150px;
+            mix-blend-mode: hard-light;
+            border-radius: 20px;
+            background-color: rgba(205, 205, 205, 0.85);
+            font-family: sans-serif;
+            font-size: 24px;
+            color: white;
+        }
+
+        .avatarRect {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            margin-top: 2px;
+            margin-left: 2%;
+            padding: 3px 10px 10px 10px;
+        }
+
+        .aboutMeRect {
+            position: absolute;
+            width: 400px;
+            height: 140px;
+            margin-top: 2px;
+            margin-left: 35%;
+            padding: 12px 10px 10px 10px;
+        }
+
+        .photoLinksRect {
+            position: absolute;
+            width: 400px;
+            height: 40px;
+            margin-top: 5px;
+        }
+
+        .baseInsideRect {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            mix-blend-mode: hard-light;
+            padding: 10px 10px 10px 10px;
+            border-radius: 20px;
+            background-color: rgba(205, 205, 205, 0.85);
+            font-family: Rockwell, sans-serif;
+            font-size: 18px;
+            color: black;
+        }
+
+        .baseLetter {
+            position: absolute;
+            padding: 3px;
+            font-family: Roboto Serif, sans-serif;
+            font-size: 16px;
+        }
+
+        .baseInsideRect.taskRect {
+            margin-left: -420px;
+            margin-top: -170px;
+            width: 500px;
+            height: 70px;
+        }
+
+        /* X */
+        .baseInsideRect.xRect {
+            margin-left: -420px;
+            margin-top: -70px;
+            width: 300px;
+            height: 150px;
+        }
+
+        .baseLetter.xLetter {
+            margin-left: 140px;
+        }
+
+        #tableButton {
+            margin: 30px 35px 20px;
+            height: 90px;
+        }
+
+        .buttonNumber {
+            width: 70px;
+            height: 25px;
+            font-size: 13px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Y */
+        .baseInsideRect.yRect {
+            margin-left: -70px;
+            margin-top: -70px;
+            width: 150px;
+            height: 150px;
+        }
+
+        .baseLetter.yLetter {
+            margin-left: 60px;
+        }
+
+        #tableRadio {
+            width: 85px;
+            margin-top: 50px;
+            margin-left: 24%;
+            align-content: center;
+            align-items: center;
+        }
+
+        .btn-radio {
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            margin-bottom: 25px;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* R */
+        .baseInsideRect.rRect {
+            margin-left: -420px;
+            margin-top: 105px;
+            width: 500px;
+            height: 80px;
+        }
+
+        .baseLetter.rLetter {
+            margin-top: -10px;
+            margin-left: 240px;
+        }
+
+        /* Photos */
+        .photo {
+            display: block;
+            width: 32px;
+            height: 32px;
+            transition: transform .2s; /* Animation */
+        }
+
+        .photo.vk {
+            background-image: url("static/img/vklogo.png");
+            float: left;
+        }
+
+        .photo.github {
+            background-image: url("static/img/githublogo.png");
+            float: left;
+            margin-left: 5px;
+        }
+
+        .photo:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        /* Slider */
+
+        .output {
+            width: 100%;
+            margin-left: 50%;
+        }
+
+        input[type=range] {
+            -webkit-appearance: media-seek-back-button; /* Hides the slider so that custom slider can be made */
+            margin-top: 20px;
+            height:5px;
+            width:100%;
+            cursor: pointer;
+            background: #07C;
+            margin-bottom: 10px;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: default-button;
+            border: 2px solid #07C;
+            height: 20px;
+            width: 20px;
+            border-radius: 25px;
+            background: #fff;
+            cursor: pointer;
+            margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Первая лаба по вебу</title>
+</head>
+
+<body>
+<section>
+    <table style="width: 100%; height: 100%;">
+        <tr>
+            <td style="text-align: center;">
+                <main class="headerRect animated rotateIn">
+                    <div class="avatarRect">
+                        <img src="static/img/avatar.png">
+                    </div>
+                    <div class="aboutMeRect">
+                        Симонян Эрик Самвелович
+                        <br>
+                        Вариант: 2324
+                        <br>
+                        Группа: P3212
+                        <br>
+                        <div class="photoLinksRect">
+                            <div class="grow">
+                                <a class='photo vk' target="_blank" href='https://vk.com/eriksimohyan'></a>
+                                <a class='photo github' target="_blank" href='https://github.com/MrAureliuss'></a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">
+                <main class="contentRect animated zoomIn">
+                    <div class="baseInsideRect taskRect">
+                        Введите данные для определения вхождения точки в представленную область
+                    </div>
+
+                    <div class="baseInsideRect xRect">
+                        <span class="baseLetter xLetter">X</span>
+                        <table id="tableButton">
+                            <tr>
+                                <td>
+                                    <button class="buttonNumber" id="-4" name="x" type="button">-4</button>
+                                </td>
+                                <td>
+                                    <button class="buttonNumber" id="-3" name="x" type="button">-3</button>
+                                </td>
+                                <td>
+                                    <button class="buttonNumber" id="-2" name="x" type="button">-2</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="buttonNumber" id="-1" name="x" type="button">-1</button>
+                                </td>
+                                <td>
+                                    <button class="buttonNumber" id="0" name="x" type="button">0</button>
+                                </td>
+                                <td>
+                                    <button class="buttonNumber" id="1" name="x" type="button">1</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="buttonNumber" id="2" name="x" type="button">2</button>
+                                </td>
+                                <td>
+                                    <button class="buttonNumber" id="3" name="x" type="button">3</button>
+                                </td>
+                                <td>
+                                    <button class="buttonNumber" id="4" name="x" type="button">4</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="baseInsideRect yRect">
+                        <span class="baseLetter yLetter">Y</span>
+                        <table id="tableRadio">
+                            <tr>
+                                <td>
+                                    <label class="btn-radio" for="radio-1"></label>
+                                    <input id="radio-1" name="r" type="radio" value="1">
+                                    <span>1</span>
+                                </td>
+                                <td>
+                                    <label class="btn-radio" for="radio-2"></label>
+                                    <input id="radio-2" name="r" type="radio" value="2">
+                                    <span>2</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="btn-radio" for="radio-3"></label>
+                                    <input id="radio-3" name="r" type="radio" value="3">
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <label class="btn-radio" for="radio-4"></label>
+                                    <input id="radio-4" name="r" type="radio" value="4">
+                                    <span>4</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="baseInsideRect rRect">
+                        <span class="baseLetter rLetter">R</span>
+                        <div>
+                            <input name="gdskill[2]" id="gdskill2" type="range" min="0" value="0" max="10" step="1" list="ticks" oninput="Output2.value = gdskill2.value" /><br />
+                            <output id="Output2" class="output">0</output>
+                        </div>
+
+                        <datalist id="ticks">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </datalist>
+                    </div>
+                </main>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center; font-size: 18px; font-family: Rockwell, sans-serif" class="animated rollIn">
+                2020
+                <br>
+                Все права не защищены!
+            </td>
+        </tr>
+    </table>
+</section>
+</body>
+</html>
