@@ -40,21 +40,6 @@
         }
 
         /* Rectangles */
-        .contentRect {
-            position: fixed;
-            text-align: left;
-            top: 50%;
-            left: 50%;
-            margin-left: -462.5px;
-            margin-top: -208.5px;
-            width: 925px;
-            height: 417px;
-            mix-blend-mode: hard-light;
-            border-radius: 20px;
-            background-color: rgba(205, 205, 205, 0.85);
-
-        }
-
         .headerRect {
             position: fixed;
             text-align: left;
@@ -72,8 +57,35 @@
             color: white;
         }
 
+        .contentRect {
+            position: fixed;
+            text-align: left;
+            top: 55%;
+            left: 50%;
+            margin-left: -462.5px;
+            margin-top: -208.5px;
+            width: 925px;
+            height: 417px;
+            mix-blend-mode: hard-light;
+            border-radius: 20px;
+            background-color: rgba(205, 205, 205, 0.85);
+        }
+
+        .footerRect {
+            position: fixed;
+            text-align: center;
+            top: 100%;
+            left: 50%;
+            margin-left: -462.5px;
+            margin-top: -80.5px;
+            width: 925px;
+            height: 417px;
+            font-size: 18px;
+            font-family: Rockwell, sans-serif;
+        }
+
         .avatarRect {
-            position: absolute;
+            position: fixed;
             width: 140px;
             height: 140px;
             margin-top: 2px;
@@ -98,7 +110,7 @@
         }
 
         .baseInsideRect {
-            position: fixed;
+            position: absolute;
             top: 50%;
             left: 50%;
             mix-blend-mode: hard-light;
@@ -182,7 +194,7 @@
         /* R */
         .baseInsideRect.rRect {
             margin-left: -420px;
-            margin-top: 105px;
+            margin-top: 110px;
             width: 500px;
             height: 80px;
         }
@@ -211,6 +223,12 @@
             margin-left: 5px;
         }
 
+        .photo.telegram {
+            background-image: url("static/img/telegramlogo.png");
+            float: left;
+            margin-left: 5px;
+        }
+
         .photo:hover {
             -webkit-transform: scale(1.1);
             -ms-transform: scale(1.1);
@@ -219,36 +237,40 @@
 
         /* Slider */
 
-        .output {
+        .slidecontainer {
             width: 100%;
-            margin-left: 50%;
+            height: 100%;
         }
 
-        input[type=range] {
-            -webkit-appearance: media-seek-back-button; /* Hides the slider so that custom slider can be made */
-            margin-top: 20px;
-            height:5px;
-            width:100%;
-            cursor: pointer;
-            background: #07C;
-            margin-bottom: 10px;
-        }
-
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: default-button;
-            border: 2px solid #07C;
-            height: 20px;
-            width: 20px;
-            border-radius: 25px;
-            background: #fff;
-            cursor: pointer;
-            margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-        }
-
-        input[type=range]:focus {
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
             outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
         }
 
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
 
     </style>
     <meta charset="UTF-8">
@@ -275,6 +297,7 @@
                             <div class="grow">
                                 <a class='photo vk' target="_blank" href='https://vk.com/eriksimohyan'></a>
                                 <a class='photo github' target="_blank" href='https://github.com/MrAureliuss'></a>
+                                <a class='photo telegram' target="_blank" href='https://teleg.run/MrAurelius'></a>
                             </div>
                         </div>
                     </div>
@@ -359,36 +382,34 @@
 
                     <div class="baseInsideRect rRect">
                         <span class="baseLetter rLetter">R</span>
-                        <div>
-                            <input name="gdskill[2]" id="gdskill2" type="range" min="0" value="0" max="10" step="1" list="ticks" oninput="Output2.value = gdskill2.value" /><br />
-                            <output id="Output2" class="output">0</output>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="100" value="50" class="slider" step="1" id="myR1ange">
+                            <p>Value: <span id="demo1"></span></p>
                         </div>
-
-                        <datalist id="ticks">
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                        </datalist>
                     </div>
                 </main>
             </td>
         </tr>
         <tr>
-            <td style="text-align:center; font-size: 18px; font-family: Rockwell, sans-serif" class="animated rollIn">
-                2020
-                <br>
-                Все права не защищены!
+            <td class="animated rollIn">
+                <main class="footerRect">
+                    2020
+                    <br>
+                    Все права не защищены!
+                </main>
             </td>
         </tr>
     </table>
 </section>
+
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+</script>
 </body>
 </html>
