@@ -12,6 +12,7 @@
         }
 
         html {
+            overflow: hidden;
             font-size: 10px;
             font-family: "Lato", Arial, sans-serif;
         }
@@ -19,7 +20,7 @@
         section {
             overflow: hidden;
             width: 100%;
-            height: 100vh;
+            height: 100vmax;
             color: #fff;
             background: linear-gradient(-45deg, #EE7752, #E73C73, #23A6D5, #23D5AB);
             background-size: 400% 400%;
@@ -74,10 +75,10 @@
         .footerRect {
             position: fixed;
             text-align: center;
-            top: 100%;
+            top: 80%;
             left: 50%;
             margin-left: -462.5px;
-            margin-top: -80.5px;
+            margin-top: -670.5px;
             width: 925px;
             height: 417px;
             font-size: 18px;
@@ -130,15 +131,22 @@
         }
 
         .baseInsideRect.taskRect {
-            margin-left: -420px;
+            margin-left: -400px;
             margin-top: -170px;
             width: 500px;
             height: 70px;
         }
 
+        .baseInsideRect.taskPhoto {
+            margin-left: 150px;
+            margin-top: -170px;
+            width: 250px;
+            height: 250px;
+        }
+
         /* X */
         .baseInsideRect.xRect {
-            margin-left: -420px;
+            margin-left: -400px;
             margin-top: -70px;
             width: 300px;
             height: 150px;
@@ -164,7 +172,7 @@
 
         /* Y */
         .baseInsideRect.yRect {
-            margin-left: -70px;
+            margin-left: -50px;
             margin-top: -70px;
             width: 150px;
             height: 150px;
@@ -193,7 +201,7 @@
 
         /* R */
         .baseInsideRect.rRect {
-            margin-left: -420px;
+            margin-left: -400px;
             margin-top: 110px;
             width: 500px;
             height: 80px;
@@ -237,7 +245,8 @@
 
         /* Slider */
 
-        .slidecontainer {
+        .slideСontainer {
+            padding-top: 20px;
             width: 100%;
             height: 100%;
         }
@@ -257,18 +266,18 @@
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 25px;
-            height: 25px;
+            width: 32px;
+            height: 32px;
+            background-image: url("static/img/yoba.png");
             border-radius: 50%;
-            background: #4CAF50;
             cursor: pointer;
         }
 
         .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: #4CAF50;
+            background-image: url("static/img/yoba.png");
             cursor: pointer;
         }
 
@@ -382,11 +391,16 @@
 
                     <div class="baseInsideRect rRect">
                         <span class="baseLetter rLetter">R</span>
-                        <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value="50" class="slider" step="1" id="myR1ange">
-                            <p>Value: <span id="demo1"></span></p>
+                        <div class="slideСontainer">
+                            <input type="range" min="-3" max="3" value="0" class="slider" step="1" id="rangeSlider">
+                            <p>Value: <span id="rangeSliderValue"></span></p>
                         </div>
                     </div>
+
+                    <div class="baseInsideRect taskPhoto" style="text-align: center">
+                        <img src="static/img/taskPhoto.png">
+                    </div>
+
                 </main>
             </td>
         </tr>
@@ -403,8 +417,8 @@
 </section>
 
 <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
+    var slider = document.getElementById("rangeSlider");
+    var output = document.getElementById("rangeSliderValue");
     output.innerHTML = slider.value;
 
     slider.oninput = function() {
