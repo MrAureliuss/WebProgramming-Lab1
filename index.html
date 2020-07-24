@@ -2,7 +2,9 @@
 <html lang="ru">
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <script src="static/js/scripts.js" type="text/javascript"></script>
     <!-- Евгений Алексеевич, спасибо, что дали возможность запихнуть css в html! -->
+    <!-- Ваня Братчиков, прости, я украл у тебя дизайн -->
     <style>
         @import "https://fonts.googleapis.com/css?family=Lato:100";
         *{
@@ -15,6 +17,10 @@
             overflow: hidden;
             font-size: 10px;
             font-family: "Lato", Arial, sans-serif;
+        }
+
+        button, input:focus {
+            outline: 0;
         }
 
         section {
@@ -47,7 +53,7 @@
             top: 30%;
             left: 50%;
             margin-left: -230px;
-            margin-top: -203px;
+            margin-top: -8%;
             width: 510px;
             height: 150px;
             mix-blend-mode: hard-light;
@@ -64,7 +70,7 @@
             top: 55%;
             left: 50%;
             margin-left: -462.5px;
-            margin-top: -208.5px;
+            margin-top: -10%;
             width: 925px;
             height: 417px;
             mix-blend-mode: hard-light;
@@ -75,12 +81,12 @@
         .footerRect {
             position: fixed;
             text-align: center;
-            top: 80%;
+            padding: 10px 10px 10px 21px;
+            margin-left: -150px;
+            top: 90%;
             left: 50%;
-            margin-left: -462.5px;
-            margin-top: -670.5px;
-            width: 925px;
-            height: 417px;
+            width: 300px;
+            height: 200px;
             font-size: 18px;
             font-family: Rockwell, sans-serif;
         }
@@ -135,6 +141,7 @@
             margin-top: -170px;
             width: 500px;
             height: 70px;
+            text-align: center;
         }
 
         .baseInsideRect.taskPhoto {
@@ -144,70 +151,81 @@
             height: 250px;
         }
 
-        /* X */
-        .baseInsideRect.xRect {
+        /* R */
+        .baseInsideRect.rRect {
             margin-left: -400px;
             margin-top: -70px;
-            width: 300px;
+            width: 240px;
             height: 150px;
+
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
         }
 
-        .baseLetter.xLetter {
-            margin-left: 140px;
+        .baseLetter.rLetter {
+            margin-left: 100px;
         }
 
-        #tableButton {
-            margin: 30px 35px 20px;
-            height: 90px;
+        .baseInsideRect.rRect > input {
+            font-size: 14px;
+            position: relative;
+            border-radius: 4px;
+            width: 100%;
+            height: 30%;
+            top: 40%;
+            mix-blend-mode: luminosity;
+            vertical-align: middle;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.85);
         }
 
-        .buttonNumber {
-            width: 70px;
-            height: 25px;
-            font-size: 13px;
-            border-radius: 5px;
-            border: none;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
 
         /* Y */
         .baseInsideRect.yRect {
-            margin-left: -50px;
+            margin-left: -140px;
             margin-top: -70px;
-            width: 150px;
+            width: 240px;
             height: 150px;
+
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+        }
+
+        .baseInsideRect.yRect > input {
+            font-size: 14px;
+            position: relative;
+            border-radius: 4px;
+            width: 100%;
+            height: 30%;
+            top: 40%;
+            mix-blend-mode: luminosity;
+            vertical-align: middle;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.85);
         }
 
         .baseLetter.yLetter {
-            margin-left: 60px;
+            margin-left: 100px;
         }
 
-        #tableRadio {
-            width: 85px;
-            margin-top: 50px;
-            margin-left: 24%;
-            align-content: center;
-            align-items: center;
-        }
 
-        .btn-radio {
-            cursor: pointer;
-            display: inline-block;
-            float: left;
-            margin-bottom: 25px;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        /* R */
-        .baseInsideRect.rRect {
+        /* X */
+        .baseInsideRect.xRect {
             margin-left: -400px;
             margin-top: 110px;
             width: 500px;
             height: 80px;
         }
 
-        .baseLetter.rLetter {
+        .baseLetter.xLetter {
             margin-top: -10px;
             margin-left: 240px;
         }
@@ -281,6 +299,45 @@
             cursor: pointer;
         }
 
+        /* Button */
+        .checkButton {
+            position: absolute;
+            width: 200px;
+            height: 40px;
+            margin-left: 640px;
+            margin-top: 340px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 21px;
+            border: none;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+
+        .checkButton:hover {
+            background-color: darkgrey;
+        }
+
+        .buttonLetter {
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 19px;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.75);
+            cursor: pointer;
+        }
+
     </style>
     <meta charset="UTF-8">
     <title>Первая лаба по вебу</title>
@@ -320,79 +377,24 @@
                         Введите данные для определения вхождения точки в представленную область
                     </div>
 
-                    <div class="baseInsideRect xRect">
-                        <span class="baseLetter xLetter">X</span>
-                        <table id="tableButton">
-                            <tr>
-                                <td>
-                                    <button class="buttonNumber" id="-4" name="x" type="button">-4</button>
-                                </td>
-                                <td>
-                                    <button class="buttonNumber" id="-3" name="x" type="button">-3</button>
-                                </td>
-                                <td>
-                                    <button class="buttonNumber" id="-2" name="x" type="button">-2</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button class="buttonNumber" id="-1" name="x" type="button">-1</button>
-                                </td>
-                                <td>
-                                    <button class="buttonNumber" id="0" name="x" type="button">0</button>
-                                </td>
-                                <td>
-                                    <button class="buttonNumber" id="1" name="x" type="button">1</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button class="buttonNumber" id="2" name="x" type="button">2</button>
-                                </td>
-                                <td>
-                                    <button class="buttonNumber" id="3" name="x" type="button">3</button>
-                                </td>
-                                <td>
-                                    <button class="buttonNumber" id="4" name="x" type="button">4</button>
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="baseInsideRect rRect">
+                        <span class="baseLetter rLetter">R</span>
+                        <input autocomplete="off" autofocus
+                               class="input" id="r" onchange="checkRData()" onkeyup="checkRData()" maxlength="8" name="r" placeholder="Введите число от 1 до 4" style="border: 2px solid #d0d1c7;"
+                               title="Введите число" type="text">
                     </div>
 
                     <div class="baseInsideRect yRect">
                         <span class="baseLetter yLetter">Y</span>
-                        <table id="tableRadio">
-                            <tr>
-                                <td>
-                                    <label class="btn-radio" for="radio-1"></label>
-                                    <input id="radio-1" name="r" type="radio" value="1">
-                                    <span>1</span>
-                                </td>
-                                <td>
-                                    <label class="btn-radio" for="radio-2"></label>
-                                    <input id="radio-2" name="r" type="radio" value="2">
-                                    <span>2</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="btn-radio" for="radio-3"></label>
-                                    <input id="radio-3" name="r" type="radio" value="3">
-                                    <span>3</span>
-                                </td>
-                                <td>
-                                    <label class="btn-radio" for="radio-4"></label>
-                                    <input id="radio-4" name="r" type="radio" value="4">
-                                    <span>4</span>
-                                </td>
-                            </tr>
-                        </table>
+                        <input autocomplete="off" autofocus
+                               class="input" id="y" onchange="checkYData()" onkeyup="checkYData()" maxlength="8" name="y" placeholder="Введите число от -3 до 3" style="border: 2px solid #d0d1c7;"
+                               title="Введите число" type="text">
                     </div>
 
-                    <div class="baseInsideRect rRect">
-                        <span class="baseLetter rLetter">R</span>
+                    <div class="baseInsideRect xRect">
+                        <span class="baseLetter xLetter">X</span>
                         <div class="slideСontainer">
-                            <input type="range" min="-3" max="3" value="0" class="slider" step="1" id="rangeSlider">
+                            <input type="range" min="-4" max="4" value="0" class="slider" step="1" id="rangeSlider">
                             <p>Value: <span id="rangeSliderValue"></span></p>
                         </div>
                     </div>
@@ -401,12 +403,16 @@
                         <img src="static/img/taskPhoto.png">
                     </div>
 
+                    <button class="checkButton buttonLetter" type="submit">
+                        Выполнить проверОЧКУ
+                    </button>
+
                 </main>
             </td>
         </tr>
         <tr>
-            <td class="animated rollIn">
-                <main class="footerRect">
+            <td class="text-align:center;">
+                <main class="footerRect animated rollIn">
                     2020
                     <br>
                     Все права не защищены!
