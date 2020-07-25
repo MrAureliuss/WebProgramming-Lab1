@@ -373,40 +373,41 @@
         <tr>
             <td style="text-align:center;">
                 <main class="contentRect animated zoomIn">
-                    <div class="baseInsideRect taskRect">
-                        Введите данные для определения вхождения точки в представленную область
-                    </div>
-
-                    <div class="baseInsideRect rRect">
-                        <span class="baseLetter rLetter">R</span>
-                        <input autocomplete="off" autofocus
-                               class="input" id="r" onchange="checkRData()" onkeyup="checkRData()" maxlength="8" name="r" placeholder="Введите число от 1 до 4" style="border: 2px solid #d0d1c7;"
-                               title="Введите число" type="text">
-                    </div>
-
-                    <div class="baseInsideRect yRect">
-                        <span class="baseLetter yLetter">Y</span>
-                        <input autocomplete="off" autofocus
-                               class="input" id="y" onchange="checkYData()" onkeyup="checkYData()" maxlength="8" name="y" placeholder="Введите число от -3 до 3" style="border: 2px solid #d0d1c7;"
-                               title="Введите число" type="text">
-                    </div>
-
-                    <div class="baseInsideRect xRect">
-                        <span class="baseLetter xLetter">X</span>
-                        <div class="slideСontainer">
-                            <input type="range" min="-4" max="4" value="0" class="slider" step="1" id="rangeSlider">
-                            <p>Value: <span id="rangeSliderValue"></span></p>
+                    <form action="scripts.php" method="POST" id="valueForm">
+                        <div class="baseInsideRect taskRect">
+                            Введите данные для определения вхождения точки в представленную область
                         </div>
-                    </div>
 
-                    <div class="baseInsideRect taskPhoto" style="text-align: center">
-                        <img src="static/img/taskPhoto.png">
-                    </div>
+                        <div class="baseInsideRect rRect">
+                            <span class="baseLetter rLetter">R</span>
+                            <input autocomplete="off" autofocus
+                                   class="input" id="r" onchange="checkRData()" onkeyup="checkRData()" maxlength="8" name="r" placeholder="Введите число от 1 до 4" style="border: 2px solid #d0d1c7;"
+                                   title="Введите число" type="text">
+                        </div>
 
-                    <button class="checkButton buttonLetter" type="submit">
-                        Выполнить проверОЧКУ
-                    </button>
+                        <div class="baseInsideRect yRect">
+                            <span class="baseLetter yLetter">Y</span>
+                            <input autocomplete="off" autofocus
+                                   class="input" id="y" onchange="checkYData()" onkeyup="checkYData()" maxlength="8" name="y" placeholder="Введите число от -3 до 3" style="border: 2px solid #d0d1c7;"
+                                   title="Введите число" type="text">
+                        </div>
 
+                        <div class="baseInsideRect xRect">
+                            <span class="baseLetter xLetter">X</span>
+                            <div class="slideСontainer">
+                                <input type="range" min="-4" max="4" value="0" class="slider" step="1" id="rangeSlider" name="rangeSlider">
+                                <p>Value: <span id="rangeSliderValue"></span></p>
+                            </div>
+                        </div>
+
+                        <div class="baseInsideRect taskPhoto" style="text-align: center">
+                            <img src="static/img/taskPhoto.png">
+                        </div>
+
+                        <button class="checkButton buttonLetter" type="submit">
+                            Выполнить проверОЧКУ
+                        </button>
+                    </form>
                 </main>
             </td>
         </tr>
