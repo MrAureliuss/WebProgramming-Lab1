@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Lato:100";
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow: hidden;
+            font-size: 10px;
+            font-family: "Lato", Arial, sans-serif;
+        }
+
+        button, input:focus {
+            outline: 0;
+        }
+
+        section {
+            overflow: hidden;
+            width: 100%;
+            height: 100vmax;
+            color: #fff;
+            background: linear-gradient(-45deg, #EE7752, #E73C73, #23A6D5, #23D5AB);
+            background-size: 400% 400%;
+            position: relative;
+            animation: changeBack 10s ease-in-out infinite;
+        }
+
+        @keyframes changeBack {
+            0% {
+                background-position: 0 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        .baseInsideRect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            mix-blend-mode: hard-light;
+            padding: 10px 10px 10px 10px;
+            border-radius: 20px;
+            background-color: rgba(205, 205, 205, 0.85);
+            font-family: Rockwell, sans-serif;
+            font-size: 18px;
+            color: black;
+        }
+
+        .contentRect {
+            position: fixed;
+            text-align: left;
+            top: 55%;
+            left: 50%;
+            margin-left: -462.5px;
+            margin-top: -10%;
+            width: 925px;
+            height: 417px;
+            mix-blend-mode: hard-light;
+            border-radius: 20px;
+            background-color: rgba(205, 205, 205, 0.85);
+        }
+
+        .baseInsideRect.actionTimeRect {
+            width: 210px;
+            height: 120px;
+            text-align: center;
+        }
+
+        .baseInsideRect.currentTimeRect {
+            width: 210px;
+            height: 120px;
+            text-align: center;
+        }
+
+        #contentTable {
+            position: relative;
+            width: 210px;
+            height: 120px;
+        }
+
+    </style>
+    <title>Таблица</title>
+</head>
+<body>
+<section>
+    <table style="width: 100%; height: 100%;">
+        <tr>
+            <td>
+                <main class="contentRect animated zoomIn">
+                    <table id="contentTable" cellspacing="20">
+                        <tbody>
+                        <tr>
+                            <td class="baseInsideRect actionTimeRect">
+                                <span style="font-size: 18px;">Время исполнения</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="baseInsideRect currentTimeRect">
+                                <span style="font-size: 18px;">Текущее время</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </main>
+            </td>
+        </tr>
+    </table>
+</section>
+</body>
+</html>
