@@ -14,9 +14,9 @@ function checkData()
     } else {
         $doc = new DOMDocument();
         @$doc->loadHTMLFile("table.html");
+        $_SESSION['message'] = "wrong login";
         echo $doc->saveHTML();
     }
 }
 
 checkData();
-
