@@ -1,7 +1,7 @@
 function checkYData() {
     let y = document.getElementById("y").value.replace(",", ".")
 
-    if (y === "-") {
+    if (y === "-" || y === "0") {
         return;
     }
     if (parseInt(y)) {
@@ -32,4 +32,15 @@ function checkRData() {
         document.getElementById("r").setAttribute("style", "border: 2px solid red;")
         document.getElementById("r").value = "";
     }
+}
+
+function showTable() {
+    document.getElementById('infoContent').classList.remove('hide');
+
+    document.getElementById("tableButton").onclick = hideTable;
+}
+
+function hideTable() {
+
+    document.getElementById("tableButton").onclick = showTable;
 }
