@@ -35,12 +35,15 @@ function checkRData() {
 }
 
 function showTable() {
-    document.getElementById('infoContent').classList.remove('hide');
+    document.getElementById('infoContent').style.visibility = "hidden";
+    document.getElementById('table').style.visibility = "visible";
 
     document.getElementById("tableButton").onclick = hideTable;
 }
 
 function hideTable() {
+    document.getElementById('infoContent').style.visibility = "visible";
+    document.getElementById('table').style.visibility = "hidden";
 
     document.getElementById("tableButton").onclick = showTable;
 }

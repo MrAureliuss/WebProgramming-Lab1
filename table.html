@@ -141,6 +141,7 @@
             transition: transform .2s; /* Animation */
             opacity: .3;
             border: none;
+            cursor: pointer;
         }
 
         .photo.cross {
@@ -149,7 +150,7 @@
             margin-top: 7px;
         }
 
-        .photo.dataTable {
+        .photo.tableButton {
             background-image: url("static/img/datatable.png");
             margin-left: 510px;
             margin-top: 290px;
@@ -171,7 +172,7 @@
             <td>
                 <main class="contentRect animated zoomIn">
                     <a class='photo cross' href='index.html'></a>
-                    <a class='photo dataTable' id="tableButton" onclick="showTable()"></a>
+                    <a class='photo tableButton' id="tableButton" onclick="showTable()"></a>
 
                     <div id="infoContent">
                         <div class="baseInsideRect actionTimeRect">
@@ -211,6 +212,10 @@
                             <span>Результат</span>
                             <p id="pResult"></p>
                         </div>
+                    </div>
+
+                    <div id="table">
+
                     </div>
                 </main>
             </td>
