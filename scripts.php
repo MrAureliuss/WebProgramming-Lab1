@@ -6,7 +6,8 @@ $y = null;
 $x = null;
 $r = null;
 $time_elapsed_secs = 0;
-$resultArray = array();
+$resultArray = [];
+$_SESSION['history'] = [];
 
 function checkData()
 {
@@ -24,6 +25,7 @@ function checkData()
         $doc = new DOMDocument();
         @$doc->loadHTMLFile("table.html");
         $resultArray = array($x, $y, $r, checkSpotInArea());
+        array_push($_SESSION['history'], $resultArray);
         echo $doc->saveHTML();
     }
 }
@@ -44,7 +46,7 @@ function checkSpotInArea()
 
 
 checkData();
-array_push($_SESSION['history'], $resultArray);
+
 
 $inArea = checkSpotInArea();
 $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"]) * 1000000, 2, ",", ".") . " мкс";
@@ -74,7 +76,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
     let dataArray = '<?php echo $_SESSION['history'];?>';
     let tableRef = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
 
-    for (i = 0; i < dataArray.length; i++) {
+    for (var i = 0; i < dataArray.length; i++) {
         var tr = document.createElement('TR');
         for (j = 0; j < dataArray[i].length; j++) {
             var td = document.createElement('TD')
