@@ -130,8 +130,37 @@
         }
 
         p {
-           padding-top: 15px;
+           padding-top: 16px;
         }
+
+        #dataTable,
+        #tableBody > td {
+            table-layout: fixed;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        .tableHead {
+            overflow-y: auto;
+            height: 250px;
+            margin: -300px auto auto;
+            width: 452px;
+            color: black;
+            font-size: 14px;
+            font-family: sans-serif;
+        }
+
+        .tableHead thead th {
+            position: sticky;
+            top: 0;
+            background-color: rgb(215, 215, 215);
+            background-blend-mode: hard-light;
+        }
+
 
         /* Photos */
         .photo {
@@ -214,8 +243,20 @@
                         </div>
                     </div>
 
-                    <div id="table">
+                    <div class="tableHead" id="table" style="visibility: hidden">
+                        <table id="dataTable" style="text-align: center;" class="hide" width="100%">
+                            <thead align="center">
+                            <tr>
+                                <th width="20%">X</th>
+                                <th width="20%">Y</th>
+                                <th width="20%">R</th>
+                                <th width="40%">Результат</th>
+                            </tr>
+                            </thead>
 
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
                     </div>
                 </main>
             </td>

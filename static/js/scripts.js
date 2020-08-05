@@ -23,7 +23,6 @@ function checkRData() {
     if (parseInt(r)) {
         if (r >= 1 && r <= 4) {
             document.getElementById("r").setAttribute("style", "border: 2px solid green;")
-            console.log("q")
         } else {
             document.getElementById("r").setAttribute("style", "border: 2px solid red;")
             document.getElementById("r").value = "";
