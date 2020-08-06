@@ -7,7 +7,11 @@ $x = null;
 $r = null;
 $time_elapsed_secs = 0;
 $resultArray = [];
-$_SESSION['history'] = [];
+
+session_start();
+if (!isset($_SESSION['history'])) {
+    $_SESSION['history'] = array();
+}
 
 function checkData()
 {
@@ -47,7 +51,6 @@ function checkSpotInArea()
 
 checkData();
 
-
 $inArea = checkSpotInArea();
 $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"]) * 1000000, 2, ",", ".") . " мкс";
 ?>
@@ -73,14 +76,20 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
         document.getElementById("pResult").style.color = "red"
     }
 
-    let dataArray = '<?php echo $_SESSION['history'];?>';
-    let tableRef = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
 
-    for (var i = 0; i < dataArray.length; i++) {
-        var tr = document.createElement('TR');
-        for (j = 0; j < dataArray[i].length; j++) {
-            var td = document.createElement('TD')
-            td.appendChild(document.createTextNode(dataArray[i][j]));
+    let tableRef = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+    let data = <?php echo json_encode($_SESSION['history'])?>;
+
+    for (let i = 0; i < data.length; i++) {
+        let tr = document.createElement('TR');
+        for (let j = 0; j < data[i].length; j++) {
+            let text = data[i][j];
+            let td = document.createElement('TD')
+            if (typeof data[i][j] === "boolean") {
+                data[i][j] === true ? td.style.cssText = 'color: green' : td.style.cssText = 'color: red';
+                data[i][j] === true ? text = "Пробил!" : text = "Рикошет!";
+            }
+            td.appendChild(document.createTextNode(text));
             tr.appendChild(td)
         }
         tableRef.appendChild(tr);
