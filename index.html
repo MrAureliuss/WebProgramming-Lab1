@@ -261,43 +261,54 @@
             transform: scale(1.1);
         }
 
-        /* Slider */
+        /* Select */
 
-        .slideСontainer {
-            padding-top: 20px;
-            width: 100%;
-            height: 100%;
+        .selectContainer {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 15px;
-            border-radius: 5px;
-            background: #d3d3d3;
+        .selectContainer select {
+            background-color: #0563af;
+            color: white;
+            padding: 12px;
+            width: 450px;
+            border: none;
+            font-size: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            -webkit-appearance: button;
             outline: none;
-            opacity: 0.7;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
         }
 
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 32px;
-            height: 32px;
-            background-image: url("static/img/yoba.png");
-            border-radius: 50%;
-            cursor: pointer;
+
+        .selectContainer::before {
+            content: "\25be";
+            font-family: FontAwesome, sans-serif;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20%;
+            height: 100%;
+            text-align: center;
+            font-size: 28px;
+            line-height: 45px;
+            color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
         }
 
-        .slider::-moz-range-thumb {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-image: url("static/img/yoba.png");
-            cursor: pointer;
+
+        .selectContainer:hover::before {
+            color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.2);
         }
+
+        .selectContainer select option {
+            padding: 25px;
+        }
+
 
         /* Button */
         .checkButton {
@@ -394,9 +405,18 @@
 
                         <div class="baseInsideRect xRect">
                             <span class="baseLetter xLetter">X</span>
-                            <div class="slideСontainer">
-                                <input type="range" min="-4" max="4" value="0" class="slider" step="1" id="rangeSlider" name="rangeSlider">
-                                <p>Value: <span id="rangeSliderValue"></span></p>
+                            <div class="selectContainer">
+                                <select id="select" name="select">
+                                    <option value="-4">-4</option>
+                                    <option value="-3">-3</option>
+                                    <option value="-2">-2</option>
+                                    <option value="-1">-1</option>
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
                             </div>
                         </div>
 
@@ -422,15 +442,5 @@
         </tr>
     </table>
 </section>
-
-<script>
-    var slider = document.getElementById("rangeSlider");
-    var output = document.getElementById("rangeSliderValue");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-</script>
 </body>
 </html>

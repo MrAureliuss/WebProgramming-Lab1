@@ -21,7 +21,7 @@ function checkData()
 
     $y = $_POST['y'];
     $r = $_POST['r'];
-    $x = $_POST['rangeSlider'];
+    $x = $_POST['select'];
 
     if ($y < -3 || $y > 3 || $r < 1 || $r > 4 || !in_array($x, $x_values)) {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
