@@ -87,7 +87,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
             let td = document.createElement('TD')
             if (typeof data[i][j] === "boolean") {
                 data[i][j] === true ? td.style.cssText = 'color: green' : td.style.cssText = 'color: red';
-                data[i][j] === true ? text = "Пробил!" : text = "Рикошет!";
+                data[i][j] === true ? text = "Есть пробитие!" : text = "Рикошет!";
             }
             td.appendChild(document.createTextNode(text));
             tr.appendChild(td)

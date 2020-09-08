@@ -1,10 +1,6 @@
 function checkYData() {
     let y = document.getElementById("y").value.replace(",", ".")
 
-    if (y.length > 1) {
-        document.getElementById("y").setAttribute("style", "border: 2px solid red;")
-        document.getElementById("y").value = "";
-    }
     if (y === "-" || y === "0") {
         return;
     }
