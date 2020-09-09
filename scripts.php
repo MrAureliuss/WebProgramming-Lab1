@@ -279,6 +279,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
 
                             <script type="text/javascript">
                                 function setTime() {
+                                    let audio = new Audio('');
                                     let x = '<?php echo $x;?>';
                                     let y = '<?php echo $y;?>';
                                     let r = '<?php echo $r;?>';
@@ -291,10 +292,16 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
                                     if (inArea) {
                                         document.getElementById("pResult").innerHTML = "Есть пробитие!"
                                         document.getElementById("pResult").style.color = "green"
+                                        audio = new Audio('./static/audio/prob.mp3')
                                     } else {
                                         document.getElementById("pResult").innerHTML = "Рикошет!"
                                         document.getElementById("pResult").style.color = "red"
+                                        audio = new Audio('./static/audio/ric.mp3')
                                     }
+
+                                    // Зачем я сюда пихаю музыку?
+                                    audio.volume = 0.1;
+                                    audio.play();
                                 }
 
                                 setTimeout(setTime, 1);
@@ -363,43 +370,5 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
         </tr>
     </table>
 </section>
-<script type="text/javascript">
-    let x = '<?php echo $x;?>';
-    let y = '<?php echo $y;?>';
-    let r = '<?php echo $r;?>';
-    let inArea = '<?php echo $inArea;?>';
-    let elapsedTime = '<?php echo $time_elapsed_secs?>';
-    document.getElementById("pX").innerHTML = x;
-    document.getElementById("pY").innerHTML = y;
-    document.getElementById("pR").innerHTML = r;
-    document.getElementById("actionTime").innerHTML = elapsedTime;
-    if (inArea) {
-        document.getElementById("pResult").innerHTML = "Есть пробитие!"
-        document.getElementById("pResult").style.color = "green"
-    } else {
-        document.getElementById("pResult").innerHTML = "Рикошет!"
-        document.getElementById("pResult").style.color = "red"
-    }
-
-
-    let tableRef = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-    let data = <?php echo json_encode($_SESSION['history'])?>;
-
-    for (let i = 0; i < data.length; i++) {
-        let tr = document.createElement('TR');
-        for (let j = 0; j < data[i].length; j++) {
-            let text = data[i][j];
-            let td = document.createElement('TD')
-            if (typeof data[i][j] === "boolean") {
-                data[i][j] === true ? td.style.cssText = 'color: green' : td.style.cssText = 'color: red';
-                data[i][j] === true ? text = "Есть пробитие!" : text = "Рикошет!";
-            }
-            td.appendChild(document.createTextNode(text));
-            tr.appendChild(td)
-        }
-        tableRef.appendChild(tr);
-    }
-
-</script>
 </body>
 </html>
