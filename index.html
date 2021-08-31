@@ -16,7 +16,7 @@
         html {
             overflow: hidden;
             font-size: 10px;
-            font-family: "Lato", Arial, sans-serif;
+            font-family: "Lato", Arial, fantasy;
         }
 
         button, input:focus {
@@ -25,6 +25,10 @@
 
         select {
             border-radius: 10px;
+        }
+
+        input[type='text'] {
+            border: 2px solid #d0d1c7;
         }
 
         section {
@@ -63,7 +67,7 @@
             mix-blend-mode: hard-light;
             border-radius: 20px;
             background-color: rgba(205, 205, 205, 0.85);
-            font-family: sans-serif;
+            font-family: fantasy;
             font-size: 24px;
             color: white;
         }
@@ -92,7 +96,7 @@
             width: 300px;
             height: 200px;
             font-size: 18px;
-            font-family: Rockwell, sans-serif;
+            font-family: Rockwell, fantasy;
         }
 
         .avatarRect {
@@ -128,7 +132,7 @@
             padding: 10px 10px 10px 10px;
             border-radius: 20px;
             background-color: rgba(205, 205, 205, 0.85);
-            font-family: Rockwell, sans-serif;
+            font-family: Rockwell, fantasy;
             font-size: 18px;
             color: black;
         }
@@ -136,7 +140,7 @@
         .baseLetter {
             position: absolute;
             padding: 3px;
-            font-family: Roboto Serif, sans-serif;
+            font-family: Roboto Serif, fantasy;
             font-size: 16px;
         }
 
@@ -162,7 +166,7 @@
             width: 240px;
             height: 150px;
 
-            font-family: sans-serif;
+            font-family: fantasy;
             font-style: normal;
             font-weight: normal;
             font-size: 16px;
@@ -195,7 +199,7 @@
             width: 240px;
             height: 150px;
 
-            font-family: sans-serif;
+            font-family: fantasy;
             font-style: normal;
             font-weight: normal;
             font-size: 16px;
@@ -289,7 +293,7 @@
 
         .selectContainer::before {
             content: "\25be";
-            font-family: FontAwesome, sans-serif;
+            font-family: FontAwesome, fantasy;
             position: absolute;
             top: 0;
             right: 0;
@@ -324,7 +328,7 @@
             background-color: rgba(255, 255, 255, 0.85);
             border-radius: 15px;
 
-            font-family: sans-serif;
+            font-family: fantasy;
             font-style: normal;
             font-weight: 500;
             font-size: 20px;
@@ -343,7 +347,7 @@
         }
 
         .buttonLetter {
-            font-family: sans-serif;
+            font-family: fantasy;
             font-style: normal;
             font-weight: 500;
             font-size: 18px;
@@ -370,9 +374,9 @@
                     <div class="aboutMeRect">
                         Симонян Эрик Самвелович
                         <br>
-                        Вариант: 2324
+                        Вариант: 15023
                         <br>
-                        Группа: P3212
+                        Группа: P3215
                         <br>
                         <div class="photoLinksRect">
                             <div class="grow">
@@ -388,7 +392,7 @@
         <tr>
             <td style="text-align:center;">
                 <main class="contentRect animated zoomIn">
-                    <form action="scripts.php" method="POST" id="valueForm">
+                    <form action="scripts.php" method="POST" id="valueForm" onsubmit="return extraValidate()">
                         <div class="baseInsideRect taskRect">
                             Введите данные для определения вхождения точки в представленную область
                         </div>
@@ -396,14 +400,14 @@
                         <div class="baseInsideRect rRect">
                             <span class="baseLetter rLetter">R</span>
                             <input autocomplete="off" autofocus required
-                                   class="input" id="r" onchange="checkRData()" onkeyup="checkRData()" maxlength="8" name="r" placeholder="Введите число от 1 до 4" style="border: 2px solid #d0d1c7;"
+                                   class="input" id="r" onchange="checkRData()" onkeyup="checkRData()" maxlength="8" name="r" placeholder="Введите число от 1 до 4"
                                    title="Введите число" type="text">
                         </div>
 
                         <div class="baseInsideRect yRect">
                             <span class="baseLetter yLetter">Y</span>
                             <input autocomplete="off" autofocus required
-                                   class="input" id="y" onchange="checkYData()" onkeyup="checkYData()" maxlength="8" name="y" placeholder="Введите число от -3 до 3" style="border: 2px solid #d0d1c7;"
+                                   class="input" id="y" onchange="checkYData()" onkeyup="checkYData()" maxlength="8" name="y" placeholder="Введите число от -3 до 3"
                                    title="Введите число" type="text">
                         </div>
 
@@ -411,6 +415,7 @@
                             <span class="baseLetter xLetter">X</span>
                             <div class="selectContainer">
                                 <select id="select" name="select">
+                                    <option value="-5">-5</option>
                                     <option value="-4">-4</option>
                                     <option value="-3">-3</option>
                                     <option value="-2">-2</option>
@@ -419,7 +424,6 @@
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
-                                    <option value="4">4</option>
                                 </select>
                             </div>
                         </div>
@@ -438,7 +442,7 @@
         <tr>
             <td class="text-align:center;">
                 <main class="footerRect animated rollIn">
-                    2020
+                    2021
                     <br>
                     Все права не защищены!
                 </main>

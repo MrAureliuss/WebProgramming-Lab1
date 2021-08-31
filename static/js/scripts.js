@@ -46,3 +46,12 @@ function hideTable() {
 
     document.getElementById("tableButton").onclick = showTable;
 }
+
+function extraValidate() {
+    let y = document.getElementById("y").value.replace(",", ".")
+    if (y === "-") {
+        alert('Значение поля "Y" не соотетствует требованиям!')
+        return false
+    }
+
+}

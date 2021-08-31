@@ -2,7 +2,7 @@
 
 // Да, я запихнул целую HTML страницу в PHP и что?
 
-$x_values = array(-4, -3, -2, -1, 0, 1, 2, 3, 4);
+$x_values = array(-5, -4, -3, -2, -1, 0, 1, 2, 3);
 
 $y = null;
 $x = null;
@@ -38,9 +38,9 @@ function checkSpotInArea()
     global $y, $x, $r;
     $inArea = false;
 
-    if (($x >= -$r/2 && $x <= 0 && $y <= $r && $y >= 0) ||
-    ($y >= (2*$x - $r/2) && $y <= 0 && $x >= 0) ||
-    (($x*$x + $y*$y) <= $r*$r && $x <= 0 && $y <= 0)) {
+    if (($x >= -$r && $x <= 0 && $y >= -$r && $y <= 0) ||
+    ($y <= ($x + $r) && $y >= 0 && $x <= 0) ||
+    (($x*$x + $y*$y) <= $r*$r && $x >= 0 && $y >= 0)) {
         $inArea = true;
     }
 
@@ -71,7 +71,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
         html {
             overflow: hidden;
             font-size: 10px;
-            font-family: "Lato", Arial, sans-serif;
+            font-family: "Lato", Arial, fantasy;
         }
 
         button, input:focus {
@@ -111,7 +111,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
             width: 300px;
             height: 200px;
             font-size: 18px;
-            font-family: Rockwell, sans-serif;
+            font-family: Rockwell, fantasy;
         }
 
         .baseInsideRect {
@@ -122,7 +122,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
             padding: 30px 10px 10px 10px;
             border-radius: 20px;
             background-color: rgba(205, 205, 205, 0.85);
-            font-family: Rockwell, sans-serif;
+            font-family: Rockwell, fantasy;
             font-size: 16px;
             color: black;
             text-align: center;
@@ -207,7 +207,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
             width: 452px;
             color: black;
             font-size: 14px;
-            font-family: sans-serif;
+            font-family: fantasy;
         }
 
         .tableHead thead th {
@@ -362,7 +362,7 @@ $time_elapsed_secs = number_format((microtime(true) - $_SERVER["REQUEST_TIME_FLO
         <tr>
             <td class="text-align:center;">
                 <main class="footerRect animated rollIn">
-                    2020
+                    2021
                     <br>
                     Какие у меня могут быть права?
                 </main>
